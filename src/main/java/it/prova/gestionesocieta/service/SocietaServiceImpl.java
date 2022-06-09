@@ -63,10 +63,10 @@ public class SocietaServiceImpl implements SocietaService {
 	}
 
 	
-	/*
-	@Transactional(readOnly = true)
-	public List<Societa> almenoUnDipendenteConRAL(int reddito) {
-		return societaRepository.atLeastAnEmployeeWithRAL(reddito);
+	
+	@Override
+	public List<Societa> almenoUnDipendenteConRAL() {
+		return societaRepository.atLeastAnEmployeeWithRAL();
 	}
-	*/
+	
 }

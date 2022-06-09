@@ -13,6 +13,6 @@ public interface SocietaService {
 	
 	public List<Societa> findByExample(Societa example);
 	
-	//public List<Societa> almenoUnDipendenteConRAL(int reddito);
+	public List<Societa> almenoUnDipendenteConRAL();
 	
 }

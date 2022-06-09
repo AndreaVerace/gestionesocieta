@@ -184,4 +184,45 @@ public class BatteriaDiTestService {
 			e.printStackTrace();
 		}
 	}
+	
+	public void testSocietaConDipendenteRAL() {
+		try {
+			Date dataFondazione = new SimpleDateFormat("yyyy-MM-dd").parse("1980-12-12");
+			Societa solvingTeam = new Societa("Solving Team","Via Mosca 52",dataFondazione);
+			societaService.inserisciNuovo(solvingTeam);
+			
+			Date dataAssunzione = new SimpleDateFormat("yyyy-MM-dd").parse("2000-08-08");
+			Dipendente dipendenteSolvingTeam = new Dipendente("Jack","Bonaventura",dataAssunzione,50000,solvingTeam);
+			dipendenteService.inserisciNuovo(dipendenteSolvingTeam);
+			
+			Date dataFondazioneDue = new SimpleDateFormat("yyyy-MM-dd").parse("1980-12-12");
+			Societa illianoGroup = new Societa("Illiano s.r.l.","Via Prati 152",dataFondazioneDue);
+			societaService.inserisciNuovo(solvingTeam);
+			societaService.inserisciNuovo(illianoGroup);
+			
+			Date dataAssunzioneDue = new SimpleDateFormat("yyyy-MM-dd").parse("2020-08-08");
+			Dipendente dipendenteIllianoGroup = new Dipendente("Marco","Frollini",dataAssunzioneDue,50000,illianoGroup);
+			dipendenteService.inserisciNuovo(dipendenteIllianoGroup);
+			
+			// inserisco dipendente di una terza società con RAL < 30.000
+			Date dataFondazioneTre = new SimpleDateFormat("yyyy-MM-dd").parse("1980-12-12");
+			Societa macari = new Societa("Macari","Via Berlino 02",dataFondazioneTre);
+			societaService.inserisciNuovo(macari);
+			
+			Date dataAssunzioneTre = new SimpleDateFormat("yyyy-MM-dd").parse("2000-08-08");
+			Dipendente dipendenteMacari = new Dipendente("fabio","Macari",dataAssunzioneTre,10000,macari);
+			dipendenteService.inserisciNuovo(dipendenteMacari);
+			
+			List<Societa> result = societaService.almenoUnDipendenteConRAL();
+			
+			for(Societa societa : result)
+				System.out.println(societa.getRagioneSociale() + " "
+						+ societa.getIndirizzo() + " "
+						+ societa.getDataFondazione());
+			
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
