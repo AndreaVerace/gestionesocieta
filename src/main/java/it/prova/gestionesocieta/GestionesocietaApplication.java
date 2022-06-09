@@ -20,12 +20,13 @@ public class GestionesocietaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		/*batteriaDiTestService.testInserisciNuovaSocieta();
+		batteriaDiTestService.testInserisciNuovaSocieta();
 		batteriaDiTestService.testRimuoviSocieta();
 		batteriaDiTestService.testFindByExampleSocieta();
 		batteriaDiTestService.testInserisciNuovoDipendente();
-		*/
 		batteriaDiTestService.testAggiornaDipendente();
+		batteriaDiTestService.testDipendentePiuAnziano();
+	
 	}
 
 }

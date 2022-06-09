@@ -26,16 +26,10 @@ public class DipendenteServiceImpl implements DipendenteService {
 	public void inserisciNuovo(Dipendente dipendenteInstance) {
 		dipendenteRepository.save(dipendenteInstance);
 	}
-	/*
-	@Override
-	public List<Dipendente> piuAnzianoDelleSocietaDopo1990() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
-	public List<Dipendente> piuAnzianoDelleSocietaDopo1990() {
+	public Dipendente piuAnzianoDelleSocietaDopo1990() {
 		return dipendenteRepository.olderInCompanyAfter1990();
 	}
-	*/
+	
 }

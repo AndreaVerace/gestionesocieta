@@ -8,9 +8,9 @@ import org.springframework.data.repository.CrudRepository;
 import it.prova.gestionesocieta.model.Dipendente;
 
 public interface DipendenteRepository extends CrudRepository<Dipendente, Long> {
-	/*
-	@Query("select  d from Dipendente d left join d.societa s where s.datafondazione"
-			+ " > '1990-01-01' and d.data")
-	List<Dipendente> olderInCompanyAfter1990();
-	*/
+
+	@Query(value = "SELECT * from dipendente left join societa on dipendente.societa_id=societa.id"
+			+ " having societa.datafondazione < '1990-01-01' and MIN(dataassunzione)",nativeQuery = true)
+	Dipendente olderInCompanyAfter1990();
+	
 }

@@ -11,6 +11,6 @@ public interface DipendenteService {
 	
 	public void inserisciNuovo(Dipendente dipendenteInstance);
 	
-	//public List<Dipendente> piuAnzianoDelleSocietaDopo1990();
+	public Dipendente piuAnzianoDelleSocietaDopo1990();
 	
 }

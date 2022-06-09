@@ -154,4 +154,34 @@ public class BatteriaDiTestService {
 			e.printStackTrace();
 		}
 	}
+	
+	public void testDipendentePiuAnziano() {
+		try {
+			Date dataFondazione = new SimpleDateFormat("yyyy-MM-dd").parse("1980-12-12");
+			Societa solvingTeam = new Societa("Solving Team","Via Mosca 52",dataFondazione);
+			societaService.inserisciNuovo(solvingTeam);
+			
+			Date dataAssunzione = new SimpleDateFormat("yyyy-MM-dd").parse("2000-08-08");
+			Dipendente dipendenteSolvingTeam = new Dipendente("Jack","Bonaventura",dataAssunzione,50000,solvingTeam);
+			dipendenteService.inserisciNuovo(dipendenteSolvingTeam);
+			
+			Date dataFondazioneDue = new SimpleDateFormat("yyyy-MM-dd").parse("1980-12-12");
+			Societa illianoGroup = new Societa("Illiano s.r.l.","Via Prati 152",dataFondazioneDue);
+			societaService.inserisciNuovo(solvingTeam);
+			societaService.inserisciNuovo(illianoGroup);
+			
+			Date dataAssunzioneDue = new SimpleDateFormat("yyyy-MM-dd").parse("2020-08-08");
+			Dipendente dipendenteIllianoGroup = new Dipendente("Marco","Frollini",dataAssunzioneDue,50000,illianoGroup);
+			dipendenteService.inserisciNuovo(dipendenteIllianoGroup);
+			
+			
+			Dipendente result = dipendenteService.piuAnzianoDelleSocietaDopo1990();
+			System.out.println(result.getNome() + " " + result.getCognome() 
+			+ " " + result.getRedditoAnnuoLordo() + " " + result.getDataAssunzione());
+			
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
