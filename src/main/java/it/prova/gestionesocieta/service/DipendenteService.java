@@ -6,11 +6,11 @@ import it.prova.gestionesocieta.model.Dipendente;
 import it.prova.gestionesocieta.model.Societa;
 
 public interface DipendenteService {
+	/*
+	public void aggiorna(Dipendente dipendenteInstance);
 
-	public void aggiorna(Societa abitanteInstance);
-
-	public void inserisciNuovo(Societa abitanteInstance);
+	public void inserisciNuovo(Dipendente dipendenteInstance);
 	
 	public List<Dipendente> piuAnzianoDelleSocietaDopo1990();
-	
+	*/
 }

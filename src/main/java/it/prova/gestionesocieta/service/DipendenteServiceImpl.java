@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.prova.gestionesocieta.model.Dipendente;
-import it.prova.gestionesocieta.model.Societa;
 import it.prova.gestionesocieta.repository.DipendenteRepository;
 
 @Service
@@ -16,17 +15,16 @@ public class DipendenteServiceImpl implements DipendenteService {
 
 	@Autowired
 	private DipendenteRepository dipendenteRepository;
-
+	/*
 	@Transactional
-	public void aggiorna(Societa abitanteInstance) {
-		// TODO Auto-generated method stub
+	public void aggiorna(Dipendente dipendenteInstance) {
+		dipendenteRepository.save(dipendenteInstance);
 		
 	}
 
 	@Transactional
-	public void inserisciNuovo(Societa abitanteInstance) {
-		// TODO Auto-generated method stub
-		
+	public void inserisciNuovo(Dipendente dipendenteInstance) {
+		dipendenteRepository.save(dipendenteInstance);
 	}
 
 	@Override
@@ -34,5 +32,10 @@ public class DipendenteServiceImpl implements DipendenteService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
+	/*@Override
+	public List<Dipendente> piuAnzianoDelleSocietaDopo1990() {
+		return dipendenteRepository.olderInCompanyAfter1990();
+	}
+	*/
 }
