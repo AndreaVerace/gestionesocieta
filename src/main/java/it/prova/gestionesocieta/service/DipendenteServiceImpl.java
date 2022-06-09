@@ -12,7 +12,7 @@ import it.prova.gestionesocieta.repository.DipendenteRepository;
 
 @Service
 public class DipendenteServiceImpl implements DipendenteService {
-
+	
 	@Autowired
 	private DipendenteRepository dipendenteRepository;
 	/*
@@ -21,19 +21,19 @@ public class DipendenteServiceImpl implements DipendenteService {
 		dipendenteRepository.save(dipendenteInstance);
 		
 	}
-
+	*/
 	@Transactional
 	public void inserisciNuovo(Dipendente dipendenteInstance) {
 		dipendenteRepository.save(dipendenteInstance);
 	}
-
+	/*
 	@Override
 	public List<Dipendente> piuAnzianoDelleSocietaDopo1990() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	/*@Override
+	@Override
 	public List<Dipendente> piuAnzianoDelleSocietaDopo1990() {
 		return dipendenteRepository.olderInCompanyAfter1990();
 	}
