@@ -37,5 +37,26 @@ public class BatteriaDiTestService {
 		}	
 	}
 	
-	
+	public void testRimuoviSocieta() {
+		try {
+			Date dataFondazione = new SimpleDateFormat("yyyy-MM-dd").parse("1980-12-12");
+			Societa solvingTeamDaRimuovere = new Societa("Solving Team","Via Mosca 52",dataFondazione);
+			
+			if(solvingTeamDaRimuovere.getId() != null)
+				throw new RuntimeException("testInserisciNuovaSocieta...failed: transient object con id valorizzato");
+			
+			societaService.inserisciNuovo(solvingTeamDaRimuovere);
+			if(solvingTeamDaRimuovere.getId() != null) {
+				System.out.println("Inserimento effettuato");
+			}
+			
+			societaService.rimuovi(solvingTeamDaRimuovere);
+			
+			
+			
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
 }

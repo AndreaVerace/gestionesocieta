@@ -31,16 +31,17 @@ public class SocietaServiceImpl implements SocietaService {
 		societaRepository.save(societaInstance);
 		
 	}
-	/*
+	
 	@Transactional
 	public void rimuovi(Societa societaInstance) {
-		if(societaInstance.getDipendenti() != null) {
+		if(!societaInstance.getDipendenti().isEmpty()) {
 			throw new SocietaConDipendentiException("Impossibile eliminare società con dipendenti a carico");
 		}
-		societaRepository.delete(societaInstance);
-		
+		else {
+			societaRepository.delete(societaInstance);
+		}
 	}
-
+	/*
 	@Transactional(readOnly = true)
 	public List<Societa> findByExample(Societa example) {
 		String query = "select s from Societa s where s.id=s.id";
