@@ -118,10 +118,40 @@ public class BatteriaDiTestService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-	
-	
 	}
 	
-	
+	public void testAggiornaDipendente() {
+		try {
+			Date dataFondazione = new SimpleDateFormat("yyyy-MM-dd").parse("1980-12-12");
+			Societa solvingTeam = new Societa("Solving Team","Via Mosca 52",dataFondazione);
+			
+			if(solvingTeam.getId() != null)
+				throw new RuntimeException("testInserisciNuovaSocieta...failed: transient object con id valorizzato");
+			
+			societaService.inserisciNuovo(solvingTeam);
+			
+			
+			Date dataAssunzione = new SimpleDateFormat("yyyy-MM-dd").parse("2000-08-08");
+			Dipendente dipendenteSolvingTeam = new Dipendente("Jack","Bonaventura",dataAssunzione,50000,solvingTeam);
+			
+			if(dipendenteSolvingTeam.getId() != null)
+				throw new RuntimeException("testInserisciNuovoDipendente...failed: transient object con id valorizzato");
+
+			dipendenteService.inserisciNuovo(dipendenteSolvingTeam);
+			
+			System.out.println(dipendenteSolvingTeam);
+			
+			dipendenteSolvingTeam.setNome("Jack dopo modifica");
+			dipendenteSolvingTeam.setCognome("Bonaventura dopo modifica");
+			dipendenteSolvingTeam.setRedditoAnnuoLordo(100000);
+			
+			dipendenteService.aggiorna(dipendenteSolvingTeam);
+			
+			System.out.println(dipendenteSolvingTeam);
+			
+		}  catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

@@ -15,13 +15,13 @@ public class DipendenteServiceImpl implements DipendenteService {
 	
 	@Autowired
 	private DipendenteRepository dipendenteRepository;
-	/*
+	
 	@Transactional
 	public void aggiorna(Dipendente dipendenteInstance) {
 		dipendenteRepository.save(dipendenteInstance);
 		
 	}
-	*/
+	
 	@Transactional
 	public void inserisciNuovo(Dipendente dipendenteInstance) {
 		dipendenteRepository.save(dipendenteInstance);

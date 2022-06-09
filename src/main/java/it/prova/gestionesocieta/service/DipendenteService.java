@@ -7,7 +7,7 @@ import it.prova.gestionesocieta.model.Societa;
 
 public interface DipendenteService {
 	
-	//public void aggiorna(Dipendente dipendenteInstance);
+	public void aggiorna(Dipendente dipendenteInstance);
 	
 	public void inserisciNuovo(Dipendente dipendenteInstance);
 	
