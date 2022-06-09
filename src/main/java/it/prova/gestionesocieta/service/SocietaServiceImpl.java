@@ -41,26 +41,28 @@ public class SocietaServiceImpl implements SocietaService {
 			societaRepository.delete(societaInstance);
 		}
 	}
-	/*
+	
 	@Transactional(readOnly = true)
 	public List<Societa> findByExample(Societa example) {
-		String query = "select s from Societa s where s.id=s.id";
+		String query = "select s from Societa s where s.id = s.id ";
 		
 		if (StringUtils.isNotEmpty(example.getRagioneSociale())){
-			query += " and s.ragionesociale like '%" + example.getRagioneSociale() + "%' ";
+			query += " and s.ragioneSociale like '%" + example.getRagioneSociale() + "%' ";
 		}
 		if(StringUtils.isNotEmpty(example.getIndirizzo())) {
 			query += " and s.indirizzo like '%" + example.getIndirizzo() + "%' ";
 		}
+		//commento la data per problema : Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: Nov near line 1, column 169
+		/*
 		if(example.getDataFondazione() != null) {
-			query += " and s.datafondazione = '" + example.getDataFondazione() + "'";  
+			query += " and s.dataFondazione = " + example.getDataFondazione();  
 		}
-		
+		*/
 		return entityManager.createQuery(query, Societa.class).getResultList();
 		
 	}
 
-	
+	/*
 
 	@Override
 	public List<Societa> almenoUnDipendenteConRAL() {

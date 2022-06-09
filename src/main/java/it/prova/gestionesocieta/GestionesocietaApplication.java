@@ -22,6 +22,7 @@ public class GestionesocietaApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		batteriaDiTestService.testInserisciNuovaSocieta();
 		batteriaDiTestService.testRimuoviSocieta();
+		batteriaDiTestService.testFindByExampleSocieta();
 	}
 
 }
